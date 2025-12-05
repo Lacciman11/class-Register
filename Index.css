@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    padding: 50px 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 70px;
+}
+
+#login{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    transition: ease 0.2s;
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    height: fit-content;
+    width: 400px;
+    box-shadow: 1px 1px 10px black;
+    padding:20px;
+    border-radius: 20px;
+}
+
+form>div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+label{
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+input{
+    height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+input::placeholder{
+    font-weight: bold;
+}
+
+#password{
+    margin-bottom: 20px;
+}
+
+span{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    padding: 10px;
+    width: 70%;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: ease 0.2s;
+}
+
+button:hover, #login:hover{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+input:focus{
+    outline: 2px solid green;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(4, 226, 4);
+}
+
+#error{
+    width: 100%;
+    background-color: rgb(211, 7, 7);
+    color: white;
+    padding: 5px;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+
+@media (max-width:480px){
+    h1{
+        text-align: center;
+        font-size: x-large;
+    }
+    form{
+        width:300px;
+    }
+}
+

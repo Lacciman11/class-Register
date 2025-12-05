@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <!-- Link to Bootstrap CSS for responsiveness -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        th {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center">Student List</h2>
+
+    <!-- Download Button -->
+    <button class="btn btn-primary mb-3" onclick="downloadTable()">Download Report</button>
+
+    <!-- Table to display students -->
+    <table class="table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th rowspan="2">Name</th>
+                <th rowspan="2">Reg No</th>
+                <th colspan="10">Attendance/Assignment</th>
+                <th rowspan="2">Total Attendance/Assignment</th>
+                <th rowspan="2">Test</th>
+                <th rowspan="2">Exam</th>
+                <th rowspan="2">Grade</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+            <!-- Students will be added here dynamically -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Link to Bootstrap JS and Popper.js for interactive features -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Include jsPDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+
+<!-- Custom JS to fetch students and display them -->
+<script src="report.js"></script>
+
+</body>
+</html>

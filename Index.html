@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Index.css">
+    <link rel="shortcut-icon" href="">
+    <style>
+        /* Loader style */
+        .loader {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            display: none; /* Initially hidden */
+        }
+
+        /* Keyframes for loader spin */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Disable button while loading */
+        .disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CME Students' Attendance Registration</h1>
+    </header>
+
+    <a id="login" href="./login.html">Admin Login</a>
+
+    <div class="body">
+        <form action="">
+            <div>
+                <label for="studentName">Student Name:</label>
+                <input id="studentName" type="text" placeholder="Enter full name">
+            </div>
+            <div>
+                <label for="regNum">Registration Number:</label>
+                <input id="regNum" type="text" placeholder="Enter Registration Number">
+            </div>
+    
+            <span>
+                <button id="submitBtn" type="submit">Submit</button>
+                <div id="loader" class="loader"></div>
+            </span>
+        </form>
+    </div>
+
+    <div id="error">
+        Please, fill in the input fields before submitting this form
+    </div>
+
+    <script src="./Index.js"></script>
+</body>
+</html>
