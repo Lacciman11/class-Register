@@ -15,7 +15,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
     // Send the POST request to the server
     try {
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch("https://classregisterserver.onrender.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

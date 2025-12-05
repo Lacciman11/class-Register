@@ -11,7 +11,7 @@ async function fetchStudents() {
         }
 
         // Make a GET request to your server to fetch the students with the Authorization header
-        const response = await fetch('http://localhost:5000/students', {
+        const response = await fetch('https://classregisterserver.onrender.com/students', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

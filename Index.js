@@ -23,7 +23,7 @@ form.addEventListener('submit', async (e) => {
     loader.style.display = "inline-block"; // Show loader
 
     try {
-        const response = await fetch("http://localhost:5000/register", {
+        const response = await fetch("https://classregisterserver.onrender.com/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
