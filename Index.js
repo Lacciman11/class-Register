@@ -49,7 +49,7 @@ form.addEventListener('submit', async (e) => {
         // Get token from localStorage (saved after admin login)
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:5000/register", {
+        const response = await fetch("https://classregisterserver.onrender.com/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

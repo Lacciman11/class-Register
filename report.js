@@ -8,7 +8,7 @@ async function fetchStudents() {
             return;
         }
 
-        const response = await fetch('http://localhost:5000/students', {
+        const response = await fetch('https://classregisterserver.onrender.com/students', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
