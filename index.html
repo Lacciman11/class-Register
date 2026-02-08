@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CME Student Registration</title>
     <link rel="stylesheet" href="./Index.css">
-    <link rel="shortcut-icon" href="">
+
     <style>
-        /* Loader style */
         .loader {
             border: 2px solid #f3f3f3;
             border-top: 2px solid #3498db;
@@ -16,16 +15,14 @@
             height: 15px;
             animation: spin 1s linear infinite;
             margin-left: 10px;
-            display: none; /* Initially hidden */
+            display: none;
         }
 
-        /* Keyframes for loader spin */
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        /* Disable button while loading */
         .disabled {
             background-color: #ccc;
             cursor: not-allowed;
@@ -33,34 +30,99 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>CME Students' Attendance Registration</h1>
-    </header>
 
-    <a id="login" href="./login.html">Admin Login</a>
+<header>
+    <h1>CME Students' Attendance Registration</h1>
+</header>
 
-    <div class="body">
-        <form action="">
-            <div>
-                <label for="studentName">Student Name:</label>
-                <input id="studentName" type="text" placeholder="Enter full name">
-            </div>
-            <div>
-                <label for="regNum">Registration Number:</label>
-                <input id="regNum" type="text" placeholder="Enter Registration Number">
-            </div>
-    
-            <span>
-                <button id="submitBtn" type="submit">Submit</button>
-                <div id="loader" class="loader"></div>
-            </span>
-        </form>
-    </div>
+<a id="login" href="./login.html">Admin Login</a>
 
-    <div id="error">
-        Please, fill in the input fields before submitting this form
-    </div>
+<div class="body">
+    <form id="studentForm">
 
-    <script src="./Index.js"></script>
+        <div>
+            <label>Name:</label>
+            <input id="name" type="text" placeholder="Enter full name" required>
+        </div>
+
+        <div>
+            <label>JAMB Registration Number:</label>
+            <input id="jambRegNumber" type="text" placeholder="Enter JAMB Reg Number" required>
+        </div>
+
+        <div>
+            <label>Matric Number:</label>
+            <input id="matricNumber" type="text" placeholder="Enter Matric Number" required>
+        </div>
+
+        <div>
+            <label>Sex:</label>
+            <select id="sex" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Date of Birth:</label>
+            <input id="dateOfBirth" type="date" required>
+        </div>
+
+        <div>
+            <label>Age:</label>
+            <input id="age" type="number" placeholder="Enter age" required>
+        </div>
+
+        <div>
+            <label>Marital Status:</label>
+            <select id="maritalStatus" required>
+                <option value="">Select</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widowed">Widowed</option>
+            </select>
+        </div>
+
+        <div>
+            <label>State of Origin:</label>
+            <input id="stateOfOrigin" type="text" placeholder="Enter state of origin" required>
+        </div>
+
+        <div>
+            <label>Mode of Entry:</label>
+            <select id="modeOfEntry" required>
+                <option value="">Select</option>
+                <option value="UTME">UTME</option>
+                <option value="Direct Entry">Direct Entry</option>
+                <option value="Transfer">Transfer</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Duration of Course (years):</label>
+            <input id="durationOfCourse" type="number" placeholder="e.g 4" required>
+        </div>
+
+        <div>
+            <label>Phone Number:</label>
+            <input id="phoneNumber" type="text" placeholder="Enter phone number" required>
+        </div>
+
+        <span>
+            <button id="submitBtn" type="submit">Submit</button>
+            <div id="loader" class="loader"></div>
+        </span>
+
+    </form>
+</div>
+
+<div id="error">
+    Please fill in all fields before submitting
+</div>
+
+<script src="./Index.js"></script>
+
 </body>
 </html>

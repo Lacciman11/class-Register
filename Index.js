@@ -1,6 +1,17 @@
-const form = document.getElementsByTagName('form')[0];
-const nameInput = document.getElementById('studentName');
-const regNumInput = document.getElementById('regNum');
+const form = document.getElementById('studentForm');
+
+const nameInput = document.getElementById('name');
+const jambInput = document.getElementById('jambRegNumber');
+const matricInput = document.getElementById('matricNumber');
+const sexInput = document.getElementById('sex');
+const dobInput = document.getElementById('dateOfBirth');
+const ageInput = document.getElementById('age');
+const maritalInput = document.getElementById('maritalStatus');
+const stateInput = document.getElementById('stateOfOrigin');
+const modeInput = document.getElementById('modeOfEntry');
+const durationInput = document.getElementById('durationOfCourse');
+const phoneInput = document.getElementById('phoneNumber');
+
 const error = document.getElementById('error');
 const submitBtn = document.getElementById('submitBtn');
 const loader = document.getElementById('loader');
@@ -8,8 +19,20 @@ const loader = document.getElementById('loader');
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Check for empty inputs
-    if (nameInput.value.trim() === '' || regNumInput.value.trim() === '') {
+    // Validate all fields
+    if (
+        !nameInput.value.trim() ||
+        !jambInput.value.trim() ||
+        !matricInput.value.trim() ||
+        !sexInput.value ||
+        !dobInput.value ||
+        !ageInput.value ||
+        !maritalInput.value ||
+        !stateInput.value.trim() ||
+        !modeInput.value ||
+        !durationInput.value ||
+        !phoneInput.value.trim()
+    ) {
         error.style.display = "block";
         error.textContent = "Please fill in all fields";
 
@@ -17,18 +40,32 @@ form.addEventListener('submit', async (e) => {
         return;
     }
 
-    // Disable the button and show loader
+    // Disable button and show loader
     submitBtn.disabled = true;
-    submitBtn.classList.add('disabled'); // Add disabled styling
-    loader.style.display = "inline-block"; // Show loader
+    submitBtn.classList.add('disabled');
+    loader.style.display = "inline-block";
 
     try {
-        const response = await fetch("https://classregisterserver.onrender.com/register", {
+        // Get token from localStorage (saved after admin login)
+        const token = localStorage.getItem("token");
+
+        const response = await fetch("http://localhost:5000/register", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify({
-                studentName: nameInput.value,
-                regNum: regNumInput.value
+                name: nameInput.value,
+                jambRegNumber: jambInput.value,
+                matricNumber: matricInput.value,
+                sex: sexInput.value,
+                dateOfBirth: dobInput.value,
+                age: Number(ageInput.value),
+                maritalStatus: maritalInput.value,
+                stateOfOrigin: stateInput.value,
+                modeOfEntry: modeInput.value,
+                durationOfCourse: Number(durationInput.value),
+                phoneNumber: phoneInput.value
             })
         });
 
@@ -39,15 +76,15 @@ form.addEventListener('submit', async (e) => {
             alert("Student registered successfully!");
             form.reset();
         } else {
-            alert("Error: " + result.message);
+            alert(result.message || "Registration failed");
         }
-    } catch (error) {
-        console.error("Error:", error);
-        alert("An error occurred while registering the student.");
+
+    } catch (err) {
+        console.error(err);
+        alert("Network error. Please try again.");
     } finally {
-        // Re-enable the button and hide the loader after API response
         submitBtn.disabled = false;
-        submitBtn.classList.remove('disabled'); // Remove disabled styling
-        loader.style.display = "none"; // Hide loader
+        submitBtn.classList.remove('disabled');
+        loader.style.display = "none";
     }
 });
